@@ -1,0 +1,345 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Enhanced Hero Section -->
+<!-- Apple Glass Morphism Hero Section - Responsive -->
+<section class="hero-section text-white" style="margin-top: 76px;">
+    <div class="hero-container">
+        <div class="row align-items-center justify-content-center">
+            <!-- Left Content Column -->
+            <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                <div class="hero-content-glass floating-element">
+                    <!-- Brand Header -->
+                    <div class="hero-brand mb-4 mb-md-5">
+                        <div class="d-flex align-items-center flex-column flex-md-row text-center text-md-start">
+                            <img src="{{ url_for('static', filename='images/logo.png') }}" 
+                                 alt="Capitol City Contracting" 
+                                 class="hero-logo me-md-4 mb-3 mb-md-0 floating-element-delay">
+                            <div>
+    <h1 class="hero-title mb-2">Ottawa Home<br class="d-none d-md-block"> Contracting Experts</h1>
+    <p class="hero-subtitle mb-0">Flooring, Repairs, Rent-Ready</p>
+</div>
+
+                        </div>
+                    </div>
+
+                    <!-- Value Proposition -->
+                    <div class="value-proposition mb-4 mb-md-5">
+                        <p class="lead mb-4 opacity-90 lh-lg text-center text-md-start">
+                            Modern technology meets traditional craftsmanship. Serving Ottawa homes and businesses with premium contracting solutions.
+                        </p>
+                        
+                        <!-- Primary CTAs -->
+                        <div class="cta-section mb-4 mb-md-5">
+                            <div class="d-flex flex-column flex-md-row gap-3 justify-content-center justify-content-md-start">
+                                <a href="{{ url_for('booking_page') }}" class="btn btn-warning btn-lg fw-bold px-4 py-3 flex-grow-1 flex-md-grow-0">
+                                    <i class="bi bi-lightning-fill me-2"></i>Start Your Project
+                                </a>
+                                <a href="{{ url_for('services') }}" class="btn btn-glass btn-lg px-4 py-3 flex-grow-1 flex-md-grow-0">
+                                    <i class="bi bi-grid-3x3-gap me-2"></i>Our Services
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Brand Tagline -->
+                        <div class="brand-tagline text-center text-md-start">
+                            <h4 class="fw-bold text-warning mb-0">Book. Fix. Move On.</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Column -->
+            <div class="col-12 col-lg-6">
+                <div class="hero-visual text-center text-dark floating-element-delay">
+                    <div class="visual-icon mb-3 mb-md-4">
+                        <i class="bi bi-house-gear text-primary-gradient"></i>
+                    </div>
+                    <h3 class="text-dark mb-3 fw-bold fs-2 fs-md-1">Premium Contracting Experience</h3>
+                    <p class="text-muted mb-4 fs-5 fs-md-6">Technology-driven solutions with uncompromising quality and attention to detail</p>
+                    <div class="trust-indicators">
+                        <div class="row g-2 g-md-3 justify-content-center">
+                            <div class="col-12 col-sm-6">
+                                <div class="d-flex align-items-center justify-content-center justify-content-sm-start">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <small>Licensed & Insured</small>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="d-flex align-items-center justify-content-center justify-content-sm-start">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <small>Free Consultations</small>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="d-flex align-items-center justify-content-center justify-content-sm-start">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <small>Transparent Pricing</small>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="d-flex align-items-center justify-content-center justify-content-sm-start">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <small>Quality Guaranteed</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Work Showcase Section -->
+<section class="work-showcase-section py-6 bg-dark">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Section Header -->
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold text-white mb-3">Our Work Showcase</h2>
+                    <p class="lead text-light opacity-80">See the quality and craftsmanship that sets us apart</p>
+                </div>
+
+                <!-- Showcase Gallery -->
+                <div class="showcase-container-wrapper">
+                    <div class="showcase-container position-relative rounded-4 overflow-hidden">
+                        <div class="showcase-track" id="showcaseTrack">
+                            <div class="showcase-slide active">
+                                <img src="{{ url_for('static', filename='images/IMG_6182.jpg') }}" 
+                                     alt="Kitchen Renovation Project" 
+                                     class="showcase-image">
+                                <div class="showcase-overlay">
+                                    <div class="showcase-content">
+                                        <span class="showcase-badge">Kitchen Renovation</span>
+                                        <p class="showcase-description mt-2">Modern kitchen transformation with custom cabinetry</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase-slide">
+                                <img src="{{ url_for('static', filename='images/IMG_6183.jpg') }}" 
+                                     alt="Bathroom Remodel Project" 
+                                     class="showcase-image">
+                                <div class="showcase-overlay">
+                                    <div class="showcase-content">
+                                        <span class="showcase-badge">Bathroom Remodel</span>
+                                        <p class="showcase-description mt-2">Luxury bathroom upgrade with premium fixtures</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase-slide">
+                                <img src="{{ url_for('static', filename='images/IMG_6184.jpg') }}" 
+                                     alt="Basement Finishing Project" 
+                                     class="showcase-image">
+                                <div class="showcase-overlay">
+                                    <div class="showcase-content">
+                                        <span class="showcase-badge">Basement Finishing</span>
+                                        <p class="showcase-description mt-2">Complete basement transformation into living space</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase-slide">
+                                <img src="{{ url_for('static', filename='images/IMG_6185.jpg') }}" 
+                                     alt="Home Renovation Project" 
+                                     class="showcase-image">
+                                <div class="showcase-overlay">
+                                    <div class="showcase-content">
+                                        <span class="showcase-badge">Home Renovation</span>
+                                        <p class="showcase-description mt-2">Full home renovation with modern upgrades</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigation Dots -->
+                        <div class="showcase-dots mt-3">
+                            <button class="dot active" data-slide="0"></button>
+                            <button class="dot" data-slide="1"></button>
+                            <button class="dot" data-slide="2"></button>
+                            <button class="dot" data-slide="3"></button>
+                        </div>
+                        
+                        <!-- Navigation Arrows -->
+                        <button class="showcase-nav showcase-prev">
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+                        <button class="showcase-nav showcase-next">
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+</section>
+
+
+
+<!-- Trust Badges -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-3 text-center">
+                <div class="trust-badge p-4 bg-white rounded-3 shadow-sm">
+                    <i class="bi bi-house display-4 text-primary mb-3"></i>
+                    <h5>Ottawa Local</h5>
+                    <p class="text-muted mb-0">Serving our community for years</p>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="trust-badge p-4 bg-white rounded-3 shadow-sm">
+                    <i class="bi bi-file-check display-4 text-success mb-3"></i>
+                    <h5>Fully Licensed</h5>
+                    <p class="text-muted mb-0">Certified and compliant</p>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="trust-badge p-4 bg-white rounded-3 shadow-sm">
+                    <i class="bi bi-shield-check display-4 text-warning mb-3"></i>
+                    <h5>Fully Insured</h5>
+                    <p class="text-muted mb-0">Protected and guaranteed</p>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="trust-badge p-4 bg-white rounded-3 shadow-sm">
+                    <i class="bi bi-star display-4 text-info mb-3"></i>
+                    <h5>5-Star Rated</h5>
+                    <p class="text-muted mb-0">Proven track record</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Overview -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-primary mb-3">Our Premium Services</h2>
+            <p class="lead text-muted">Comprehensive contracting solutions for residential and commercial projects</p>
+        </div>
+        
+        <div class="row g-4">
+            {% for service in services %}
+            <div class="col-lg-4 col-md-6">
+                <div class="card service-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon display-1 text-primary mb-3">{{ service.icon }}</div>
+                        <h4 class="card-title text-primary">{{ service.name }}</h4>
+                        <p class="card-text text-muted">{{ service.description }}</p>
+                        <div class="service-meta border-top border-bottom py-3 my-3">
+                            <div class="row">
+                                <div class="col-6">
+                                    <strong class="text-success">{{ service.price_range }}</strong>
+                                    <small class="d-block text-muted">Investment</small>
+                                </div>
+                                <div class="col-6">
+                                    <strong class="text-primary">{{ service.duration }}</strong>
+                                    <small class="d-block text-muted">Timeline</small>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ url_for('booking_page') }}?service={{ service.id }}" class="btn btn-outline-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="{{ url_for('services') }}" class="btn btn-primary btn-lg">View All Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-primary mb-3">How It Works</h2>
+            <p class="lead text-muted">Simple, transparent process from booking to completion</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="process-step">
+                    <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="fs-3 fw-bold">1</span>
+                    </div>
+                    <h5>Book Online</h5>
+                    <p class="text-muted">Use our easy online booking system to schedule your consultation</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="process-step">
+                    <div class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="fs-3 fw-bold">2</span>
+                    </div>
+                    <h5>Free Consultation</h5>
+                    <p class="text-muted">We assess your project and provide a detailed quote</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="process-step">
+                    <div class="step-number bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="fs-3 fw-bold">3</span>
+                    </div>
+                    <h5>Project Approval</h5>
+                    <p class="text-muted">Review and approve the project plan and timeline</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="process-step">
+                    <div class="step-number bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="fs-3 fw-bold">4</span>
+                    </div>
+                    <h5>We Deliver</h5>
+                    <p class="text-muted">Professional execution with quality materials and craftsmanship</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-primary mb-3">What Our Clients Say</h2>
+            <p class="lead text-muted">Trusted by Ottawa homeowners and businesses</p>
+        </div>
+        
+        <div class="row g-4">
+            {% for testimonial in testimonials %}
+            <div class="col-lg-4">
+                <div class="card testimonial-card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="testimonial-rating text-warning mb-3">
+                            {% for i in range(testimonial.rating) %}
+                            <i class="bi bi-star-fill"></i>
+                            {% endfor %}
+                        </div>
+                        <p class="card-text fst-italic text-muted">"{{ testimonial.comment }}"</p>
+                        <div class="testimonial-author border-top pt-3">
+                            <strong class="text-primary">{{ testimonial.customer_name }}</strong>
+                            <br>
+                            <small class="text-muted">{{ testimonial.project_type }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-3">Ready to Transform Your Space?</h2>
+        <p class="lead mb-4">Book your consultation today and experience the Capitol City difference</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="{{ url_for('booking_page') }}" class="btn btn-warning btn-lg fw-bold">Start Your Project</a>
+            <a href="tel:6135550123" class="btn btn-outline-light btn-lg">Call Now: (613) 555-0123</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

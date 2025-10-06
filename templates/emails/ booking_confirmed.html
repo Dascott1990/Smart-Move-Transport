@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: #27ae60; color: white; padding: 20px; text-align: center; }
+        .content { padding: 20px; background: #f9f9f9; }
+        .footer { padding: 20px; text-align: center; font-size: 12px; color: #666; }
+        .confirmed-badge { background: #2ecc71; color: white; padding: 10px; text-align: center; font-weight: bold; }
+        .booking-details { background: white; padding: 15px; margin: 15px 0; border-left: 4px solid #27ae60; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Booking Confirmed! 🎉</h1>
+        </div>
+        
+        <div class="confirmed-badge">
+            ✅ YOUR BOOKING IS CONFIRMED
+        </div>
+        
+        <div class="content">
+            <h2>{{ intro_message }}</h2>
+            
+            <p>{{ greeting }}</p>
+            
+            <p>We're excited to let you know that your {{ service.name }} project has been confirmed and scheduled!</p>
+            
+            <div class="booking-details">
+                <h3>Confirmed Schedule</h3>
+                <p><strong>Service:</strong> {{ service.name }}</p>
+                <p><strong>Scheduled Date:</strong> {{ booking.preferred_date }}</p>
+                <p><strong>Scheduled Time:</strong> {{ booking.preferred_time }}</p>
+                <p><strong>Project Duration:</strong> {{ service.duration }}</p>
+                <p><strong>Project Description:</strong><br>{{ booking.project_description }}</p>
+                <p><strong>Location:</strong> {{ booking.address }}</p>
+            </div>
+            
+            <p><strong>Important Information:</strong></p>
+            <ul>
+                <li>Our team will arrive at the scheduled time</li>
+                <li>Please ensure the work area is accessible</li>
+                <li>For any changes, contact us at least 24 hours in advance</li>
+                <li>Keep this email for your reference</li>
+            </ul>
+            
+            <p>If you have any questions before we begin, don't hesitate to contact us at <strong>(613) 555-0123</strong>.</p>
+            
+            <p>We're looking forward to delivering exceptional results for your project!</p>
+        </div>
+        
+        <div class="footer">
+            <p>{{ closing }}<br>{{ sender_name }}</p>
+            <p>Capitol City Contracting Team</p>
+            <p>Email: {{ sender_email }} | Phone: (613) 555-0123</p>
+            <p>&copy; {{ current_year }} Capitol City Contracting. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

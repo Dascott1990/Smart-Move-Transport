@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+        .content { padding: 20px; background: #f9f9f9; }
+        .footer { padding: 20px; text-align: center; font-size: 12px; color: #666; }
+        .booking-details { background: white; padding: 15px; margin: 15px 0; border-left: 4px solid #3498db; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Capitol City Contracting</h1>
+        </div>
+        
+        <div class="content">
+            <h2>{{ intro_message }}</h2>
+            
+            <p>{{ greeting }}</p>
+            
+            <p>We've received your booking request and will review it shortly. Here are your project details:</p>
+            
+            <div class="booking-details">
+                <h3>Project Details</h3>
+                <p><strong>Service:</strong> {{ service.name }}</p>
+                <p><strong>Preferred Date:</strong> {{ booking.preferred_date }}</p>
+                <p><strong>Preferred Time:</strong> {{ booking.preferred_time }}</p>
+                <p><strong>Project Description:</strong><br>{{ booking.project_description }}</p>
+                <p><strong>Location:</strong> {{ booking.address }}</p>
+            </div>
+            
+            <p><strong>What happens next?</strong></p>
+            <ul>
+                <li>Our team will review your project requirements</li>
+                <li>We'll contact you within 24 hours to discuss details</li>
+                <li>We'll provide a detailed quote and timeline</li>
+                <li>Once confirmed, we'll schedule your project</li>
+            </ul>
+            
+            <p>For urgent inquiries, please call us at <strong>(613) 555-0123</strong>.</p>
+            
+            <p>We look forward to working with you!</p>
+        </div>
+        
+        <div class="footer">
+            <p>{{ closing }}<br>{{ sender_name }}</p>
+            <p>Capitol City Contracting Team</p>
+            <p>Email: {{ sender_email }} | Phone: (613) 555-0123</p>
+            <p>&copy; {{ current_year }} Capitol City Contracting. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

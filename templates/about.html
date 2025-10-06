@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - Capitol City Contracting{% endblock %}
+
+{% block content %}
+<!-- Enhanced Page Header -->
+<section class="bg-light py-5" style="margin-top: 76px;">
+    <div class="container py-4">
+        <div class="text-center">
+            <div class="page-header-brand justify-content-center">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" 
+                     alt="Capitol City Contracting" 
+                     height="80"
+                     class="me-3">
+                <div class="text-start">
+                    <h1 class="page-header-title text-primary">About Us</h1>
+                    <p class="page-header-subtitle">Capitol City Contracting</p>
+                </div>
+            </div>
+            <p class="lead text-muted mt-3">Ottawa's trusted contracting partner, combining traditional craftsmanship with modern technology</p>
+        </div>
+    </div>
+</section>
+
+<!-- Our Story -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="display-6 fw-bold text-primary mb-4">Our Story</h2>
+                <p class="lead text-muted mb-4">Founded in Ottawa with a vision to transform the contracting industry, Capitol City Contracting brings together decades of construction expertise with cutting-edge technology to deliver exceptional results for our clients.</p>
+                
+                <p class="text-muted mb-4">As part of Dascott Global Ventures, we leverage innovative project management tools and communication platforms to ensure every project runs smoothly, on time, and within budget.</p>
+                
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <div class="mission-vision-card p-4 bg-light rounded-3">
+                            <i class="bi bi-bullseye display-6 text-primary mb-3"></i>
+                            <h4 class="text-primary">Our Mission</h4>
+                            <p class="text-muted mb-0">To provide Ottawa homeowners and businesses with reliable, tech-enabled contracting services that simplify the renovation process and deliver outstanding quality.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mission-vision-card p-4 bg-light rounded-3">
+                            <i class="bi bi-eye display-6 text-success mb-3"></i>
+                            <h4 class="text-success">Our Vision</h4>
+                            <p class="text-muted mb-0">To become Ottawa's most trusted contracting company by consistently exceeding expectations and building lasting relationships with our clients.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-image bg-primary text-white rounded-3 p-5 text-center">
+                    <i class="bi bi-people display-1 mb-3"></i>
+                    <h4>Our Team</h4>
+                    <p class="mb-0">Experienced professionals dedicated to excellence</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-primary mb-3">Our Values</h2>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="value-card p-4 bg-white rounded-3 shadow-sm h-100">
+                    <i class="bi bi-award display-4 text-primary mb-3"></i>
+                    <h5 class="text-primary">Quality First</h5>
+                    <p class="text-muted">We never compromise on materials or craftsmanship. Every project receives the same attention to detail and commitment to excellence.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="value-card p-4 bg-white rounded-3 shadow-sm h-100">
+                    <i class="bi bi-chat-dots display-4 text-success mb-3"></i>
+                    <h5 class="text-success">Transparent Communication</h5>
+                    <p class="text-muted">Clear pricing, regular updates, and honest advice. We believe in building trust through open communication.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="value-card p-4 bg-white rounded-3 shadow-sm h-100">
+                    <i class="bi bi-lightbulb display-4 text-warning mb-3"></i>
+                    <h5 class="text-warning">Innovation Driven</h5>
+                    <p class="text-muted">Leveraging technology to improve project management, communication, and the overall client experience.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="value-card p-4 bg-white rounded-3 shadow-sm h-100">
+                    <i class="bi bi-house-heart display-4 text-info mb-3"></i>
+                    <h5 class="text-info">Community Focused</h5>
+                    <p class="text-muted">Proudly serving the Ottawa community and contributing to the growth and improvement of our city.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trust Signals -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-primary mb-3">Why Trust Capitol City?</h2>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="trust-item d-flex align-items-start">
+                    <i class="bi bi-file-check display-6 text-success me-4"></i>
+                    <div>
+                        <h4 class="text-success">Fully Licensed & Certified</h4>
+                        <p class="text-muted mb-0">All our work meets Ontario building codes and municipal regulations. We maintain all necessary licenses and certifications to operate legally and safely.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="trust-item d-flex align-items-start">
+                    <i class="bi bi-shield-check display-6 text-warning me-4"></i>
+                    <div>
+                        <h4 class="text-warning">Comprehensive Insurance</h4>
+                        <p class="text-muted mb-0">We carry $5 million in liability insurance and WSIB coverage, protecting both our team and your property throughout the project.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="trust-item d-flex align-items-start">
+                    <i class="bi bi-geo-alt display-6 text-primary me-4"></i>
+                    <div>
+                        <h4 class="text-primary">Ottawa Local</h4>
+                        <p class="text-muted mb-0">Born and raised in Ottawa, we understand local architecture, weather considerations, and municipal requirements specific to our region.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="trust-item d-flex align-items-start">
+                    <i class="bi bi-star display-6 text-info me-4"></i>
+                    <div>
+                        <h4 class="text-info">Proven Track Record</h4>
+                        <p class="text-muted mb-0">With hundreds of completed projects and 5-star reviews, we've built a reputation for reliability and quality in the Ottawa area.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-primary mb-3">Client Success Stories</h2>
+        </div>
+        
+        <div class="row g-4">
+            {% for testimonial in testimonials %}
+            <div class="col-lg-4">
+                <div class="card testimonial-card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="testimonial-rating text-warning mb-3">
+                            {% for i in range(testimonial.rating) %}
+                            <i class="bi bi-star-fill"></i>
+                            {% endfor %}
+                        </div>
+                        <p class="card-text fst-italic text-muted">"{{ testimonial.comment }}"</p>
+                        <div class="testimonial-author border-top pt-3">
+                            <strong class="text-primary">{{ testimonial.customer_name }}</strong>
+                            <br>
+                            <small class="text-muted">{{ testimonial.project_type }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

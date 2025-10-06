@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% block title %}Our Services - Capitol City Contracting{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="bg-light py-5" style="margin-top: 76px;">
+    <div class="container py-4">
+        <div class="text-center">
+            <div class="d-flex justify-content-center align-items-center mb-4">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" 
+                     alt="Capitol City Contracting" 
+                     height="80"
+                     class="me-3">
+                <div class="text-start">
+                    <h1 class="display-4 fw-bold text-primary mb-0">Our Services</h1>
+                    <p class="lead text-muted mb-0">Capitol City Contracting</p>
+                </div>
+            </div>
+            <p class="lead text-muted">Comprehensive contracting solutions with transparent pricing and professional execution</p>
+        </div>
+    </div>
+</section>
+
+<!-- Services Detail -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            {% for service in services %}
+            <div class="col-12">
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-2 text-center">
+                                <div class="service-icon display-1 text-primary">{{ service.icon }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="card-title text-primary">{{ service.name }}</h3>
+                                <p class="card-text text-muted">{{ service.description }}</p>
+                                <div class="row mt-3">
+                                    <div class="col-sm-6">
+                                        <strong class="text-success">{{ service.price_range }}</strong>
+                                        <small class="d-block text-muted">Investment Range</small>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <strong class="text-primary">{{ service.duration }}</strong>
+                                        <small class="d-block text-muted">Project Timeline</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="{{ url_for('booking_page') }}?service={{ service.id }}" class="btn btn-primary btn-lg w-100">Book This Service</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Features -->
+                        <div class="row mt-4 pt-4 border-top">
+                            <div class="col-12">
+                                <h5 class="text-primary mb-3">What's Included:</h5>
+                                <div class="row">
+                                    {% if service.name == "Home Renovations" %}
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Complete project management</li>
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Quality materials and craftsmanship</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Building code compliance</li>
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Final cleaning and inspection</li>
+                                        </ul>
+                                    </div>
+                                    {% elif service.name == "Kitchen Remodeling" %}
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Custom cabinet design and installation</li>
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Countertop fabrication and installation</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Professional appliance installation</li>
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Lighting and electrical updates</li>
+                                        </ul>
+                                    </div>
+                                    {% elif service.name == "Bathroom Renovations" %}
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Plumbing and fixture upgrades</li>
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Waterproofing and tiling</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Ventilation and lighting</li>
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Custom storage solutions</li>
+                                        </ul>
+                                    </div>
+                                    {% elif service.name == "Basement Finishing" %}
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Proper insulation and vapor barrier</li>
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Electrical and lighting design</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Drywall and finishing</li>
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Flooring and trim work</li>
+                                        </ul>
+                                    </div>
+                                    {% elif service.name == "Emergency Repairs" %}
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>24/7 emergency response</li>
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Immediate damage control</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Temporary solutions if needed</li>
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Follow-up permanent repairs</li>
+                                        </ul>
+                                    </div>
+                                    {% elif service.name == "Commercial Build-outs" %}
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Commercial-grade materials</li>
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Building code compliance</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Project management</li>
+                                            <li><i class="bi bi-check-circle text-success me-2"></i>Timeline guarantees</li>
+                                        </ul>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Comparison -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-primary mb-3">Transparent Pricing</h2>
+            <p class="lead text-muted">No hidden fees, just honest pricing for quality work</p>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Service</th>
+                        <th>Starting From</th>
+                        <th>Typical Range</th>
+                        <th>Timeline</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for service in services %}
+                    <tr>
+                        <td><strong>{{ service.name }}</strong></td>
+                        <td>
+                            {% if service.name == "Home Renovations" %}
+                            $15,000
+                            {% elif service.name == "Kitchen Remodeling" %}
+                            $12,000
+                            {% elif service.name == "Bathroom Renovations" %}
+                            $8,000
+                            {% elif service.name == "Basement Finishing" %}
+                            $20,000
+                            {% elif service.name == "Emergency Repairs" %}
+                            $150/hr
+                            {% elif service.name == "Commercial Build-outs" %}
+                            $50,000
+                            {% endif %}
+                        </td>
+                        <td>{{ service.price_range }}</td>
+                        <td>{{ service.duration }}</td>
+                        <td>
+                            <a href="{{ url_for('booking_page') }}?service={{ service.id }}" class="btn btn-outline-primary btn-sm">Get Quote</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-3">Not Sure Which Service You Need?</h2>
+        <p class="lead mb-4">Schedule a free consultation and let our experts assess your project requirements</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="{{ url_for('booking_page') }}" class="btn btn-warning btn-lg fw-bold">Book Free Consultation</a>
+            <a href="{{ url_for('contact') }}" class="btn btn-outline-light btn-lg">Contact Us</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

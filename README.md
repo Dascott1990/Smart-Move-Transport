@@ -159,4 +159,4 @@ RESTful API documentation (Swagger / Postman)
 💼 Author
 Capitol City Contracting Web App
 Built with ❤️ by Dascott
-🌐 Website: https://windowportfolio-five.vercel.app/home
+🌐 Website: https://windowportfolio-five.vercel.app

@@ -32,12 +32,15 @@
 
                         <!-- Primary CTAs -->
                         <div class="cta-section mb-4 mb-md-5">
-                            <!-- Phone CTA - Transparent -->
-                            <div class="phone-cta mb-4 text-center">
-                                <a href="tel:4165056927" class="btn btn-outline-light btn-lg px-4 py-3 fw-bold" style="background: transparent; border: 2px solid white;">
-                                    <i class="bi bi-telephone-fill me-2"></i>(416) 505-6927
-                                </a>
-                                <p class="text-light mt-2 mb-0 small">Tap to call instantly</p>
+                            <div class="phone-cta mt-4 text-center text-md-start">
+                                <div class="d-flex align-items-center flex-column flex-md-row">
+                                    <div class="phone-text">
+                                        <!-- Glass-morphism effect with blur -->
+                                        <a href="tel:4165056927" class="btn btn-lg px-4 py-3 fw-bold glass-button">
+                                            <i class="bi bi-telephone-outbound me-2"></i>(416) 505-6927
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="d-flex flex-column flex-md-row gap-3 justify-content-center justify-content-md-start">
@@ -377,17 +380,48 @@
     justify-content: center;
 }
 
-/* Transparent phone button styling */
-.btn-outline-light {
-    background: transparent !important;
-    border: 2px solid white !important;
+/* Glass-morphism button styles */
+.glass-button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 2px solid rgba(40, 167, 69, 0.3) !important;
     color: white !important;
-    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+    border-radius: 12px !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease !important;
 }
 
-.btn-outline-light:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
+.glass-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.glass-button:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-color: rgba(40, 167, 69, 0.6) !important;
     transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.glass-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.glass-button i {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 @keyframes truckMovingRight {
@@ -418,6 +452,12 @@
         animation: truckMovingRightMobile 15s ease-in-out infinite;
         background-attachment: scroll;
         min-height: 400px;
+    }
+
+    .glass-button {
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+        padding: 0.75rem 1.5rem !important;
     }
 
     @keyframes truckMovingRightMobile {
@@ -454,12 +494,6 @@
 
     .cta-section {
         margin-bottom: 2rem !important;
-    }
-
-    /* Better phone button on mobile */
-    .phone-cta .btn {
-        padding: 0.75rem 1.5rem !important;
-        font-size: 1.1rem !important;
     }
 }
 </style>

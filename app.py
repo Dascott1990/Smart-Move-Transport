@@ -35,12 +35,15 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'dev-secret-key-change-in-production'
 
 # Database configuration for Render (PostgreSQL) vs local (SQLite)
+# Database configuration for Render (PostgreSQL) vs local (SQLite)
 database_url = os.environ.get('DATABASE_URL')
 if database_url:
+    # Handle Render's PostgreSQL URL - use postgresql+psycopg for the new driver
     if database_url.startswith('postgres://'):
-        database_url = database_url.replace('postgres://', 'postgresql://', 1)
+        database_url = database_url.replace('postgres://', 'postgresql+psycopg://', 1)
     app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 else:
+    # Development - SQLite
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///smartmove_transport.db'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

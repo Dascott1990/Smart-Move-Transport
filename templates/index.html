@@ -2,7 +2,7 @@
 
 {% block content %}
 <!-- Enhanced Hero Section -->
-<section class="hero-section text-white" style="margin-top: 76px;">
+<section class="hero-section text-white">
     <div class="hero-container">
         <div class="row align-items-center justify-content-center">
 
@@ -11,18 +11,19 @@
                 <div class="hero-content-glass floating-element" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('{{ url_for('static', filename='images/MOVINTRUCK.jpg') }}') center/cover no-repeat; min-height: 500px; display: flex; flex-direction: column; justify-content: center;">
 
                     <!-- Brand Header -->
-<div class="hero-brand mb-4 mb-md-5">
-    <div class="d-flex align-items-center flex-column flex-md-row text-center text-md-start">
-        <!-- Replace the PNG with HTML logo -->
-        <div class="hero-logo me-md-4 mb-3 mb-md-0 floating-element-delay">
-            {% include "logo.html" %}
-        </div>
-        <div>
-            <h1 class="hero-title mb-2 text-white">Ottawa's<br class="d-none d-md-block"> Moving Experts</h1>
-            <p class="hero-subtitle mb-0 text-light">Residential • Commercial • Long-Distance</p>
-        </div>
-    </div>
-</div>
+                    <div class="hero-brand mb-4 mb-md-5">
+                        <div class="d-flex align-items-center flex-column flex-md-row text-center text-md-start">
+                            <!-- Replace the PNG with HTML logo -->
+                            <div class="hero-logo me-md-4 mb-3 mb-md-0 floating-element-delay">
+                                {% include "logo.html" %}
+                            </div>
+                            <div>
+                                <h1 class="hero-title mb-2 text-white">Ottawa's<br class="d-none d-md-block"> Moving Experts</h1>
+                                <p class="hero-subtitle mb-0 text-light">Residential • Commercial • Long-Distance</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Value Proposition -->
                     <div class="value-proposition mb-4 mb-md-5">
                         <p class="lead mb-4 text-center text-md-start text-white fs-5" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8); font-weight: 500;">
@@ -30,27 +31,27 @@
                         </p>
 
                         <!-- Primary CTAs -->
-<div class="cta-section mb-4 mb-md-5">
-    <div class="d-flex flex-column flex-md-row gap-3 justify-content-center justify-content-md-start">
-        <a href="{{ url_for('booking_page') }}" class="btn btn-warning btn-lg fw-bold px-4 py-3 flex-grow-1 flex-md-grow-0">
-            <i class="bi bi-lightning-fill me-2"></i>Book Your Move
-        </a>
-        <a href="{{ url_for('services') }}" class="btn btn-glass btn-lg px-4 py-3 flex-grow-1 flex-md-grow-0" style="background: rgba(255,255,255,0.9); color: #000;">
-            <i class="bi bi-grid-3x3-gap me-2"></i>Moving Services
-        </a>
-    </div>
+                        <div class="cta-section mb-4 mb-md-5">
+                            <div class="d-flex flex-column flex-md-row gap-3 justify-content-center justify-content-md-start">
+                                <a href="{{ url_for('booking_page') }}" class="btn btn-warning btn-lg fw-bold px-4 py-3 flex-grow-1 flex-md-grow-0">
+                                    <i class="bi bi-lightning-fill me-2"></i>Book Your Move
+                                </a>
+                                <a href="{{ url_for('services') }}" class="btn btn-glass btn-lg px-4 py-3 flex-grow-1 flex-md-grow-0" style="background: rgba(255,255,255,0.9); color: #000;">
+                                    <i class="bi bi-grid-3x3-gap me-2"></i>Moving Services
+                                </a>
+                            </div>
 
-    <!-- Phone CTA with icon highlight -->
-    <div class="phone-cta mt-4 text-center text-md-start">
-        <div class="d-flex align-items-center flex-column flex-md-row">
-            <div class="phone-text">
-                <a href="tel:4165056927" class="btn btn-success btn-lg px-4 py-3 fw-bold">
-                    <i class="bi bi-telephone-outbound me-2"></i>(416) 505-6927
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+                            <!-- Phone CTA with icon highlight -->
+                            <div class="phone-cta mt-4 text-center text-md-start">
+                                <div class="d-flex align-items-center flex-column flex-md-row">
+                                    <div class="phone-text">
+                                        <a href="tel:4165056927" class="btn btn-success btn-lg px-4 py-3 fw-bold">
+                                            <i class="bi bi-telephone-outbound me-2"></i>(416) 505-6927
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- Brand Tagline -->
                         <div class="brand-tagline text-center text-md-start">
@@ -184,7 +185,9 @@
 
                     </div>
                 </div>
-
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- Trust Badges -->
@@ -361,6 +364,11 @@
 </section>
 
 <style>
+/* Fixed spacing - removed margin-top from hero section */
+.hero-section {
+    margin-top: 0 !important;
+}
+
 .hero-content-glass {
     animation: truckMovingRight 15s ease-in-out infinite;
     background-attachment: fixed;
@@ -423,6 +431,19 @@
             background-position: 110% center;
             background-size: cover;
         }
+    }
+
+    /* Adjust spacing for mobile */
+    .hero-brand {
+        margin-bottom: 2rem !important;
+    }
+
+    .value-proposition {
+        margin-bottom: 2rem !important;
+    }
+
+    .cta-section {
+        margin-bottom: 2rem !important;
     }
 }
 </style>

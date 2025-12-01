@@ -33,7 +33,7 @@ except ImportError as e:
 # App configuration
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'dev-secret-key-change-in-production'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'sqlite:///capitol_contracting.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'sqlite:///smartmove_transport.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Company-wide constants for templates and notifications

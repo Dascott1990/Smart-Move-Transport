@@ -30,11 +30,21 @@ except ImportError as e:
     EMAIL_SERVICE_AVAILABLE = False
     logger.warning(f"Email service not available: {e}")
 
-# App configuration
+## App configuration
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'dev-secret-key-change-in-production'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'sqlite:///smartmove_transport.db'
+
+# Database configuration for Render (PostgreSQL) vs local (SQLite)
+database_url = os.environ.get('DATABASE_URL')
+if database_url:
+    if database_url.startswith('postgres://'):
+        database_url = database_url.replace('postgres://', 'postgresql://', 1)
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_url
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///smartmove_transport.db'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 
 # Company-wide constants for templates and notifications
 COMPANY_NAME = "SmartMove Transport"
@@ -578,6 +588,26 @@ def page_not_found(e):
 def internal_error(e):
     return render_template("500.html"), 500
 
+
+@app.route('/health')
+def health_check():
+    """Health check endpoint for Render"""
+    try:
+        # Test database connection
+        db.session.execute('SELECT 1')
+        db_status = 'connected'
+    except Exception as e:
+        db_status = f'error: {str(e)}'
+
+    # Test email configuration
+    email_configured = bool(os.environ.get('MAIL_USERNAME') and os.environ.get('MAIL_PASSWORD'))
+
+    return jsonify({
+        'status': 'healthy',
+        'database': db_status,
+        'email_configured': email_configured,
+        'environment': 'production' if 'RENDER' in os.environ else 'development'
+    })
 
 # Production configuration
 if __name__ == '__main__':

@@ -1,68 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: #9b59b6; color: white; padding: 20px; text-align: center; }
-        .content { padding: 20px; background: #f9f9f9; }
-        .footer { padding: 20px; text-align: center; font-size: 12px; color: #666; }
-        .completed-badge { background: #9b59b6; color: white; padding: 10px; text-align: center; font-weight: bold; }
-        .booking-details { background: white; padding: 15px; margin: 15px 0; border-left: 4px solid #9b59b6; }
-        .testimonial-request { background: #ffeaa7; padding: 15px; margin: 15px 0; border-radius: 5px; }
-    </style>
+    <meta charset="UTF-8">
+    <title>Your Move is Complete</title>
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Project Complete! 🎊</h1>
-        </div>
-        
-        <div class="completed-badge">
-            ✅ PROJECT SUCCESSFULLY COMPLETED
-        </div>
-        
-        <div class="content">
-            <h2>{{ intro_message }}</h2>
-            
-            <p>{{ greeting }}</p>
-            
-            <p>We're delighted to inform you that your {{ service.name }} project has been successfully completed!</p>
-            
-            <div class="booking-details">
-                <h3>Project Summary</h3>
+<body style="font-family: Arial, sans-serif; background:#f8f9fa; padding:20px;">
+    <table width="100%" cellspacing="0" cellpadding="0" style="max-width:600px;margin:auto;background:#ffffff;padding:25px;border-radius:8px;">
+        <tr>
+            <td>
+                <h2 style="color:#0d6efd;">{{ greeting }}</h2>
+                <p style="font-size:16px; color:#444;">{{ intro_message }}</p>
+
+                <h3 style="color:#0d6efd;margin-top:25px;">Move Summary</h3>
                 <p><strong>Service:</strong> {{ service.name }}</p>
-                <p><strong>Completion Date:</strong> {{ booking.updated_at.strftime('%B %d, %Y') if booking.updated_at else 'Recently' }}</p>
-                <p><strong>Project Description:</strong><br>{{ booking.project_description }}</p>
-                <p><strong>Location:</strong> {{ booking.address }}</p>
-            </div>
-            
-            <div class="testimonial-request">
-                <h3>Share Your Experience! 🌟</h3>
-                <p>We hope you're delighted with the results! If you have a moment, we'd greatly appreciate your feedback about your experience with Capitol City Contracting.</p>
-                <p>Your review helps other customers make informed decisions and helps us continue to improve our services.</p>
-                <p><strong>Click here to leave a review:</strong> <a href="#">Share Your Feedback</a></p>
-            </div>
-            
-            <p><strong>Warranty & Support:</strong></p>
-            <ul>
-                <li>All our work comes with a standard warranty</li>
-                <li>Contact us for any post-completion support</li>
-                <li>Keep this email for your records</li>
-            </ul>
-            
-            <p>Thank you for choosing Capitol City Contracting for your project. We appreciate your business and hope to serve you again in the future!</p>
-            
-            <p>For any follow-up questions or future projects, don't hesitate to contact us at <strong>(613) 555-0123</strong>.</p>
-        </div>
-        
-        <div class="footer">
-            <p>{{ closing }}<br>{{ sender_name }}</p>
-            <p>Capitol City Contracting Team</p>
-            <p>Email: {{ sender_email }} | Phone: (613) 555-0123</p>
-            <p>&copy; {{ current_year }} Capitol City Contracting. All rights reserved.</p>
-        </div>
-    </div>
+                <p><strong>Date:</strong> {{ booking.preferred_date }} at {{ booking.preferred_time }}</p>
+                <p><strong>Pickup Address:</strong> {{ booking.address }}</p>
+
+                <p style="margin-top:25px;font-size:16px;">
+                    We appreciate you choosing SmartMove Transport.
+                    If you enjoyed our service, we'd love a quick review — it helps small businesses grow.
+                </p>
+
+                <p style="margin-top:25px;">{{ closing }}<br>
+                <strong>{{ sender_name }}</strong><br>
+                SmartMove Transport<br>
+                <a href="mailto:smartmove.ca@outlook.com">smartmove.ca@outlook.com</a><br>
+                416-505-6927
+                </p>
+
+                <p style="font-size:12px; color:#999; margin-top:30px;">
+                    © {{ current_year }} SmartMove Transport. MOVE SMART. MOVE FAST.
+                </p>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

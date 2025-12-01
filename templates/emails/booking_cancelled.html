@@ -1,56 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: #e74c3c; color: white; padding: 20px; text-align: center; }
-        .content { padding: 20px; background: #f9f9f9; }
-        .footer { padding: 20px; text-align: center; font-size: 12px; color: #666; }
-        .cancelled-badge { background: #e74c3c; color: white; padding: 10px; text-align: center; font-weight: bold; }
-        .booking-details { background: white; padding: 15px; margin: 15px 0; border-left: 4px solid #e74c3c; }
-    </style>
+    <meta charset="UTF-8">
+    <title>Move Request Cancelled</title>
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Booking Cancelled</h1>
-        </div>
-        
-        <div class="cancelled-badge">
-            ❌ BOOKING CANCELLED
-        </div>
-        
-        <div class="content">
-            <h2>{{ intro_message }}</h2>
-            
-            <p>{{ greeting }}</p>
-            
-            <p>This email confirms that your booking for {{ service.name }} has been cancelled as requested.</p>
-            
-            <div class="booking-details">
-                <h3>Cancelled Booking Details</h3>
+<body style="font-family: Arial, sans-serif; background:#f8f9fa; padding:20px;">
+    <table width="100%" cellspacing="0" cellpadding="0" style="max-width:600px;margin:auto;background:#ffffff;padding:25px;border-radius:8px;">
+        <tr>
+            <td>
+                <h2 style="color:#dc3545;">{{ greeting }}</h2>
+                <p style="font-size:16px; color:#444;">{{ intro_message }}</p>
+
+                <h3 style="color:#dc3545;margin-top:25px;">Cancelled Booking Details</h3>
                 <p><strong>Service:</strong> {{ service.name }}</p>
-                <p><strong>Original Date:</strong> {{ booking.preferred_date }}</p>
-                <p><strong>Original Time:</strong> {{ booking.preferred_time }}</p>
-                <p><strong>Project Description:</strong><br>{{ booking.project_description }}</p>
-            </div>
-            
-            <p><strong>We're sorry to see you go!</strong></p>
-            <p>If you cancelled by mistake or would like to reschedule, please contact us immediately at <strong>(613) 555-0123</strong> and we'll be happy to assist you.</p>
-            
-            <p>We hope to have the opportunity to serve you in the future for your contracting needs.</p>
-            
-            <p>If there was anything we could have done better, we'd appreciate your feedback to help us improve our services.</p>
-        </div>
-        
-        <div class="footer">
-            <p>{{ closing }}<br>{{ sender_name }}</p>
-            <p>Capitol City Contracting Team</p>
-            <p>Email: {{ sender_email }} | Phone: (613) 555-0123</p>
-            <p>&copy; {{ current_year }} Capitol City Contracting. All rights reserved.</p>
-        </div>
-    </div>
+                <p><strong>Originally Scheduled:</strong> {{ booking.preferred_date }} at {{ booking.preferred_time }}</p>
+
+                <p style="margin-top:25px;font-size:16px;">
+                    If this was a mistake, or if you want to reschedule, simply reply to this email.
+                    We're always ready to help you move.
+                </p>
+
+                <p style="margin-top:25px;">{{ closing }}<br>
+                <strong>{{ sender_name }}</strong><br>
+                SmartMove Transport<br>
+                <a href="mailto:smartmove.ca@outlook.com">smartmove.ca@outlook.com</a><br>
+                416-505-6927
+                </p>
+
+                <p style="font-size:12px; color:#999; margin-top:30px;">
+                    © {{ current_year }} SmartMove Transport.
+                </p>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

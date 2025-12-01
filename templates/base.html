@@ -3,143 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Capitol City Contracting - Ottawa's Trusted Contractors{% endblock %}</title>
-    <meta name="description" content="Tech-enabled, Ottawa-trusted contracting. Book. Fix. Move On.">
-    <!-- Favicon -->
-<!-- Additional favicon meta tags -->
-<link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.png') }}?v=2">
-<link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}?v=2">
+    <title>{% block title %}SmartMove Transport - Ottawa's Fast & Reliable Movers{% endblock %}</title>
+
+    <meta name="description" content="SmartMove Transport — Ottawa's trusted moving and delivery service. Move Smart. Move Fast. Easy online booking, reliable movers, transparent pricing.">
+
     <!-- SEO Meta Tags -->
-    <meta name="keywords" content="ottawa contracting, home renovations, kitchen remodeling, bathroom renovations, basement finishing, commercial build-outs">
-    <meta name="author" content="Capitol City Contracting">
-    
+    <meta name="keywords" content="ottawa movers, moving company ottawa, furniture delivery ottawa, same-day movers, transport service, smart move, ottawa moving services">
+    <meta name="author" content="SmartMove Transport">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.png') }}?v=2">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}?v=2">
+
     <!-- IBM Plex Sans Font -->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
-    
+
     {% block extra_css %}{% endblock %}
 </head>
+
 <body>
-   <!-- Premium Navigation -->
+
+<!-- Premium Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{ url_for('index') }}">
-            <div class="brand-logo-container">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" 
-                     alt="Capitol City Contracting" 
-                     height="45"
-                     class="logo">
+            <div class="brand-logo-container d-flex align-items-center">
+                <!-- Monogram Logo -->
+                {% include "logo.html" %}
+                <!-- Brand Text -->
                 <div class="brand-text-container">
-                    <span class="brand-primary">Capitol City</span>
-                    <span class="brand-secondary">CONTRACTING</span>
+                    <span class="brand-primary">SmartMove</span>
+                    <span class="brand-secondary">TRANSPORT</span>
                 </div>
             </div>
         </a>
-        
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('index') }}">Home</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('services') }}">Services</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('about') }}">About</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
                 </li>
+
                 <li class="nav-item ms-2">
                     <a class="btn btn-warning fw-bold" href="{{ url_for('booking_page') }}">
-                        <i class="bi bi-calendar-check me-2"></i>Book Now
+                        <i class="bi bi-truck me-2"></i>Book Move
                     </a>
                 </li>
+
             </ul>
         </div>
     </div>
 </nav>
 
-    <!-- Main Content -->
-    <main class="pt-5">
-        {% block content %}{% endblock %}
-    </main>
+<!-- Main Content -->
+<main class="pt-5">
+    {% block content %}{% endblock %}
+</main>
 
-    <!-- Enhanced Footer -->
+<!-- Enhanced Footer -->
 <footer class="bg-dark text-light pt-5 pb-3">
     <div class="container">
+
         <div class="row g-4">
+
+            <!-- Brand Column -->
             <div class="col-lg-4">
-                <div class="footer-brand">
-                    <img src="{{ url_for('static', filename='images/logo.png') }}" 
-                         alt="Capitol City Contracting" 
-                         height="40"
-                         class="me-2">
+                <div class="footer-logo">
+                    {% include "footer_logo.html" %}
                     <div class="footer-brand-text">
-                        <strong class="text-white">Capitol City</strong>
-                        <small class="text-light-emphasis">CONTRACTING</small>
+                        <strong class="text-white">SmartMove</strong>
+                        <small class="text-light-emphasis">TRANSPORT</small>
                     </div>
                 </div>
-                <p class="text-light-emphasis mb-3">Tech-enabled, Ottawa-trusted contracting. Serving Ottawa and surrounding areas with quality craftsmanship and reliable service.</p>
+
+                <p class="text-light-emphasis mb-3">
+                    Ottawa's trusted moving & delivery service.
+                    Fast, affordable, and professional movers—serving Ottawa, Gatineau, and surrounding regions.
+                </p>
+
                 <div class="d-flex flex-wrap gap-2">
                     <span class="badge bg-success">Licensed</span>
                     <span class="badge bg-success">Insured</span>
-                    <span class="badge bg-success">Local</span>
+                    <span class="badge bg-success">Local Movers</span>
                 </div>
             </div>
-            
-            <!-- Rest of footer columns remain the same -->
+
+            <!-- Quick Links -->
             <div class="col-lg-2">
                 <h6 class="fw-bold text-white mb-3">Quick Links</h6>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="{{ url_for('services') }}" class="text-light-emphasis text-decoration-none">Our Services</a></li>
-                    <li class="mb-2"><a href="{{ url_for('booking_page') }}" class="text-light-emphasis text-decoration-none">Book Service</a></li>
+                    <li class="mb-2"><a href="{{ url_for('services') }}" class="text-light-emphasis text-decoration-none">Services</a></li>
+                    <li class="mb-2"><a href="{{ url_for('booking_page') }}" class="text-light-emphasis text-decoration-none">Book a Move</a></li>
                     <li class="mb-2"><a href="{{ url_for('about') }}" class="text-light-emphasis text-decoration-none">About Us</a></li>
                     <li class="mb-2"><a href="{{ url_for('contact') }}" class="text-light-emphasis text-decoration-none">Contact</a></li>
                 </ul>
             </div>
-            
+
+            <!-- Contact Info -->
             <div class="col-lg-3">
                 <h6 class="fw-bold text-white mb-3">Contact Info</h6>
                 <ul class="list-unstyled text-light-emphasis">
                     <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Ottawa, ON</li>
-                    <li class="mb-2"><i class="bi bi-telephone me-2"></i>(613) 555-0123</li>
-                    <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@capitolcitycontracting.ca</li>
-                    <li class="mb-2"><i class="bi bi-clock me-2"></i>Mon-Fri: 8AM-6PM</li>
+                    <li class="mb-2"><i class="bi bi-telephone me-2"></i>(416) 505-6927</li>
+                    <li class="mb-2"><i class="bi bi-envelope me-2"></i>smartmove.ca@outlook.com</li>
+                    <li class="mb-2"><i class="bi bi-clock me-2"></i>Mon–Sun: 7AM–9PM</li>
                 </ul>
             </div>
-            
+
+            <!-- Service Areas -->
             <div class="col-lg-3">
                 <h6 class="fw-bold text-white mb-3">Service Areas</h6>
-                <p class="text-light-emphasis mb-2">Ottawa & Surrounding Areas</p>
-                <p class="text-light-emphasis small">Nepean • Kanata • Orleans<br>Barrhaven • Gloucester<br>Gatineau Region</p>
+                <p class="text-light-emphasis mb-2">Ottawa • Gatineau • NCR</p>
+                <p class="text-light-emphasis small">
+                    Nepean • Kanata • Orleans<br>
+                    Barrhaven • Gloucester<br>
+                    Gatineau • Hull • Aylmer
+                </p>
             </div>
+
         </div>
-        
+
         <hr class="my-4 border-secondary">
-        
+
         <div class="text-center text-light-emphasis">
-            <p class="mb-0 small">&copy; 2024 Capitol City Contracting by Dascott Global Ventures. All rights reserved.</p>
-        </div>
+    <p class="mb-0 small">
+        &copy; <span id="copyright-year">2024</span> SmartMove Transport. All rights reserved.
+    </p>
+</div>
+
     </div>
 </footer>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <!-- Showcase Gallery JS -->
-    <script src="{{ url_for('static', filename='js/showcase.js') }}"></script>
-    {% block extra_js %}{% endblock %}
+<!-- Custom JS -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+<!-- Showcase Gallery JS -->
+<script src="{{ url_for('static', filename='js/showcase.js') }}"></script>
+
+<!-- Auto Update Copyright Year -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const yearElement = document.getElementById('copyright-year');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+    });
+</script>
+
+{% block extra_js %}{% endblock %}
 </body>
 </html>

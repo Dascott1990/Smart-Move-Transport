@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Admin • Capitol City Contracting{% endblock %}
+{% block title %}Admin • SmartMove Transport{% endblock %}
 
 {% block extra_css %}
 <!-- Apple-like modern UI CSS (responsive + accessible) -->
@@ -270,73 +270,87 @@ a:focus, button:focus, .input:focus, .select:focus {
 
 {% block content %}
 <div class="admin-shell" role="application" aria-label="Admin dashboard">
+
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar" aria-label="Primary">
-    <div class="brand" aria-hidden="false">
-      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Capitol City logo">
+    <div class="brand">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="SmartMove Transport logo">
       <div>
-        <div class="title">Capitol City</div>
+        <div class="title">SmartMove Transport</div>
         <div class="sub">Admin Dashboard</div>
       </div>
     </div>
 
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-      <a href="#bookings" class="active" id="nav-bookings"><span class="icon">📅</span><span class="label">Bookings <span class="small" style="margin-left:6px; color:var(--muted)">{{ bookings|length }}</span></span></a>
+    <nav class="nav">
+      <a href="#bookings" class="active" id="nav-bookings">
+        <span class="icon">📅</span>
+        <span class="label">Bookings
+          <span class="small" style="margin-left:6px; color:var(--muted)">
+            {{ bookings|length }}
+          </span>
+        </span>
+      </a>
       <a href="#analytics" id="nav-analytics"><span class="icon">📈</span><span class="label">Analytics</span></a>
-      <a href="#services" id="nav-services"><span class="icon">🛠️</span><span class="label">Services</span></a>
+      <a href="#services" id="nav-services"><span class="icon">🚚</span><span class="label">Services</span></a>
       <a href="#testimonials" id="nav-testimonials"><span class="icon">💬</span><span class="label">Testimonials</span></a>
       <a href="{{ url_for('index') }}" class="text-danger" id="nav-back"><span class="icon">↩️</span><span class="label">Back to Site</span></a>
     </nav>
 
-    <div style="margin-top:12px; display:flex; gap:8px; align-items:center;">
-      <button id="sidebarToggle" aria-expanded="true" class="btn ghost" title="Toggle sidebar">Toggle</button>
+    <div style="margin-top:12px; display:flex; gap:8px;">
+      <button id="sidebarToggle" class="btn ghost">Toggle</button>
       <button id="logoutBtn" class="btn" onclick="location.href='{{ url_for('index') }}'">View site</button>
     </div>
+
   </aside>
 
-  <!-- Main area -->
-  <main class="main" id="main" tabindex="-1">
+  <!-- MAIN -->
+  <main class="main" id="main">
+
     <div class="topbar">
       <div class="title">
         <div class="h1">Booking Management</div>
-        <div class="h1-sub">Manage and track customer booking requests</div>
+        <div class="h1-sub">Manage and track customer moving bookings</div>
       </div>
 
-      <div class="controls" role="region" aria-label="Quick controls">
-        <button class="btn ghost" onclick="refreshBookings()" title="Refresh">⟳ Refresh</button>
-        <button class="btn primary" onclick="exportBookings()" title="Export bookings">⬇︎ Export</button>
+      <div class="controls">
+        <button class="btn ghost" onclick="refreshBookings()">⟳ Refresh</button>
+        <button class="btn primary" onclick="exportBookings()">⬇︎ Export</button>
       </div>
     </div>
 
-    <!-- Stats -->
-    <section class="stats-grid" aria-label="Statistics overview">
-      <div class="stat" aria-hidden="false">
+    <!-- STATS -->
+    <section class="stats-grid">
+      <div class="stat">
         <div class="num">{{ bookings|length }}</div>
-        <div class="label">Total Bookings</div>
-        <div class="small">12% from last month • <span class="text-muted">updated</span></div>
+        <div class="label">Total Moves</div>
+        <div class="small">Latest updates applied</div>
       </div>
+
       <div class="stat">
-        <div class="num">{{ bookings|selectattr('status', 'equalto', 'pending')|list|length }}</div>
+        <div class="num">{{ bookings|selectattr('status','equalto','pending')|list|length }}</div>
         <div class="label">Pending</div>
-        <div class="small">Needs attention</div>
+        <div class="small">Awaiting confirmation</div>
       </div>
+
       <div class="stat">
-        <div class="num">{{ bookings|selectattr('status', 'equalto', 'confirmed')|list|length }}</div>
+        <div class="num">{{ bookings|selectattr('status','equalto','confirmed')|list|length }}</div>
         <div class="label">Confirmed</div>
         <div class="small">Scheduled</div>
       </div>
+
       <div class="stat">
-        <div class="num">{{ bookings|selectattr('status', 'equalto', 'completed')|list|length }}</div>
+        <div class="num">{{ bookings|selectattr('status','equalto','completed')|list|length }}</div>
         <div class="label">Completed</div>
-        <div class="small">Finished projects</div>
+        <div class="small">Finished moves</div>
       </div>
     </section>
 
-    <!-- Table card -->
-    <section class="card" aria-labelledby="all-bookings-heading">
+    <!-- BOOKINGS TABLE -->
+    <section class="card">
+
       <div class="toolbar">
         <div class="toolbar-left">
-          <label for="statusFilter" class="small" style="margin-right:6px;">Filter</label>
+          <label for="statusFilter" class="small">Filter</label>
           <select id="statusFilter" class="select" onchange="filterByStatus(this.value)">
             <option value="">All status</option>
             <option value="pending">Pending</option>
@@ -344,107 +358,114 @@ a:focus, button:focus, .input:focus, .select:focus {
             <option value="completed">Completed</option>
             <option value="cancelled">Cancelled</option>
           </select>
-          <input id="searchInput" onkeyup="searchBookings(this.value)" class="input" placeholder="Search bookings..." aria-label="Search bookings">
+
+          <input id="searchInput" onkeyup="searchBookings(this.value)" class="input" placeholder="Search..." />
         </div>
 
-        <div class="small text-muted">Showing <strong>{{ bookings|length }}</strong> bookings</div>
+        <div class="small text-muted">
+          Showing <strong>{{ bookings|length }}</strong> bookings
+        </div>
       </div>
 
       <div style="overflow:auto;">
-        <table class="table" role="table" aria-describedby="all-bookings-heading">
+        <table class="table">
+
           <thead>
             <tr>
-              <th scope="col">Customer</th>
-              <th scope="col">Service</th>
-              <th scope="col">Date & Time</th>
-              <th scope="col">Contact</th>
-              <th scope="col">Status</th>
-              <th scope="col">Actions</th>
+              <th>Customer</th>
+              <th>Move Type</th>
+              <th>Date & Time</th>
+              <th>Contact</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
 
           <tbody id="bookingsBody">
+
             {% for booking in bookings %}
             <tr class="booking-row" data-booking-id="{{ booking.id }}" data-status="{{ booking.status }}">
+
               <td>
-                <div style="display:flex; gap:12px; align-items:center;">
-                  <div class="avatar" aria-hidden="true">{{ booking.customer_name[0]|upper }}</div>
+                <div style="display:flex; gap:12px;">
+                  <div class="avatar">{{ booking.customer_name[0]|upper }}</div>
                   <div>
-                    <div style="font-weight:700;">{{ booking.customer_name }}</div>
+                    <strong>{{ booking.customer_name }}</strong>
                     <div class="small text-muted">#{{ booking.id }}</div>
                   </div>
                 </div>
               </td>
 
               <td>
-                <div style="font-weight:700;">{{ booking.service.name }}</div>
-                <div class="small text-muted">{{ booking.project_description[:60] }}{% if booking.project_description|length > 60 %}...{% endif %}</div>
+                <strong>{{ booking.service.name }}</strong>
+                <div class="small text-muted">
+                  {{ booking.project_description[:60] }}{% if booking.project_description|length > 60 %}...{% endif %}
+                </div>
               </td>
 
               <td>
-                <div style="font-weight:700;">{{ booking.preferred_date }}</div>
+                <strong>{{ booking.preferred_date }}</strong>
                 <div class="small text-muted">{{ booking.preferred_time }}</div>
               </td>
 
               <td>
-                <div style="font-weight:700;">{{ booking.customer_phone }}</div>
+                <strong>{{ booking.customer_phone }}</strong>
                 <div class="small text-muted">{{ booking.customer_email }}</div>
               </td>
 
               <td>
-                <span class="badge status-{{ booking.status }} {{ booking.status }}">{{ booking.status|title }}</span>
+                <span class="badge {{ booking.status }}">{{ booking.status|title }}</span>
               </td>
 
               <td>
                 <div class="actions">
-                  <button class="btn" title="View details" onclick="viewBookingDetails({{ booking.id }})">👁︎</button>
+                  <button class="btn" onclick="viewBookingDetails({{ booking.id }})">👁</button>
 
                   <select class="select status-select" data-booking-id="{{ booking.id }}" onchange="onStatusChange(event)">
-                    <option value="pending" {% if booking.status == 'pending' %}selected{% endif %}>Pending</option>
-                    <option value="confirmed" {% if booking.status == 'confirmed' %}selected{% endif %}>Confirmed</option>
-                    <option value="completed" {% if booking.status == 'completed' %}selected{% endif %}>Completed</option>
-                    <option value="cancelled" {% if booking.status == 'cancelled' %}selected{% endif %}>Cancelled</option>
+                    <option value="pending" {% if booking.status=='pending' %}selected{% endif %}>Pending</option>
+                    <option value="confirmed" {% if booking.status=='confirmed' %}selected{% endif %}>Confirmed</option>
+                    <option value="completed" {% if booking.status=='completed' %}selected{% endif %}>Completed</option>
+                    <option value="cancelled" {% if booking.status=='cancelled' %}selected{% endif %}>Cancelled</option>
                   </select>
 
-                  <button class="btn" title="Delete" onclick="deleteBooking({{ booking.id }})">🗑️</button>
+                  <button class="btn" onclick="deleteBooking({{ booking.id }})">🗑</button>
                 </div>
               </td>
-            </tr>
-            {% else %}
-            <tr>
-              <td colspan="6" style="text-align:center; padding:48px 12px;">
-                <div style="font-size:48px; color:rgba(11,61,145,0.08)">📭</div>
-                <div style="font-weight:700; margin-top:8px;">No bookings found</div>
-                <div class="small text-muted">When customers make bookings they’ll appear here.</div>
-              </td>
+
             </tr>
             {% endfor %}
+
           </tbody>
+
         </table>
       </div>
+
     </section>
 
-    <!-- Quick Actions -->
+    <!-- QUICK ACTIONS -->
     <section style="margin-top:14px;">
       <div class="card">
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+        <div style="display:flex; justify-content:space-between;">
           <div>
-            <div style="font-weight:700;">Quick Actions</div>
-            <div class="small text-muted">Common admin tasks</div>
+            <strong>Quick Actions</strong>
+            <div class="small text-muted">Manage moves faster</div>
           </div>
-          <div style="display:flex; gap:8px; align-items:center;">
+
+          <div style="display:flex; gap:8px;">
             <button class="btn" onclick="sendBulkNotifications()">🔔 Notify Pending</button>
-            <button class="btn" onclick="exportPendingBookings()">⬇︎ Export Pending</button>
-            <button class="btn ghost" onclick="markAllPendingAsConfirmed()">✔︎ Confirm All Pending</button>
+            <button class="btn" onclick="exportPendingBookings()">⬇ Export Pending</button>
+            <button class="btn ghost" onclick="markAllPendingAsConfirmed()">✔ Confirm All</button>
           </div>
+
         </div>
       </div>
     </section>
+
   </main>
+
 </div>
 
-<!-- Booking details modal placeholder (will be inserted dynamically) -->
-<div id="modal-root" aria-live="polite"></div>
+<div id="modal-root"></div>
 {% endblock %}
 
 {% block extra_js %}

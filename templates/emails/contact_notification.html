@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>New Contact Message</title>
+</head>
+<body style="font-family: Arial, sans-serif; background:#f8f9fa; padding:20px;">
+    <table width="100%" cellspacing="0" cellpadding="0"
+           style="max-width:600px;margin:auto;background:#ffffff;padding:25px;border-radius:8px;">
+        <tr>
+            <td>
+                <h2 style="color:#0d6efd; margin-bottom:5px;">New Contact Message Received</h2>
+
+                <p style="font-size:16px; color:#444;">
+                    A new inquiry has been submitted through the SmartMove Transport contact page.
+                </p>
+
+                <h3 style="color:#0d6efd;margin-top:25px;">Client Details</h3>
+                <p><strong>Name:</strong> {{ message.name }}</p>
+                <p><strong>Email:</strong> {{ message.email }}</p>
+                <p><strong>Phone:</strong> {{ message.phone or 'Not provided' }}</p>
+
+                <h3 style="color:#0d6efd;margin-top:25px;">Message</h3>
+                <p>{{ message.message }}</p>
+
+                <p style="margin-top:25px; font-size:16px;">
+                    Respond to the client as soon as possible.
+                </p>
+
+                <p style="margin-top:25px;">
+                    SmartMove Transport<br>
+                    <a href="mailto:smartmove.ca@outlook.com">smartmove.ca@outlook.com</a><br>
+                    416-505-6927
+                </p>
+
+                <p style="font-size:12px; color:#999; margin-top:30px;">
+                    © {{ current_year }} SmartMove Transport. MOVE SMART. MOVE FAST.
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

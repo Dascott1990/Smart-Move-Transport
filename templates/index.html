@@ -30,16 +30,24 @@
                         </p>
 
                         <!-- Primary CTAs -->
-                        <div class="cta-section mb-4 mb-md-5">
-                            <div class="d-flex flex-column flex-md-row gap-3 justify-content-center justify-content-md-start">
-                                <a href="{{ url_for('booking_page') }}" class="btn btn-warning btn-lg fw-bold px-4 py-3 flex-grow-1 flex-md-grow-0">
-                                    <i class="bi bi-lightning-fill me-2"></i>Book Your Move
-                                </a>
-                                <a href="{{ url_for('services') }}" class="btn btn-glass btn-lg px-4 py-3 flex-grow-1 flex-md-grow-0" style="background: rgba(255,255,255,0.9); color: #000;">
-                                    <i class="bi bi-grid-3x3-gap me-2"></i>Moving Services
-                                </a>
-                            </div>
-                        </div>
+<div class="cta-section mb-4 mb-md-5">
+    <div class="d-flex flex-column flex-md-row gap-3 justify-content-center justify-content-md-start">
+        <a href="{{ url_for('booking_page') }}" class="btn btn-warning btn-lg fw-bold px-4 py-3 flex-grow-1 flex-md-grow-0">
+            <i class="bi bi-lightning-fill me-2"></i>Book Your Move
+        </a>
+        <a href="{{ url_for('services') }}" class="btn btn-glass btn-lg px-4 py-3 flex-grow-1 flex-md-grow-0" style="background: rgba(255,255,255,0.9); color: #000;">
+            <i class="bi bi-grid-3x3-gap me-2"></i>Moving Services
+        </a>
+    </div>
+
+    <!-- Add this phone CTA below the main buttons -->
+    <div class="phone-cta mt-3 text-center">
+        <a href="tel:4165056927" class="btn btn-outline-light btn-lg">
+            <i class="bi bi-telephone-outbound me-2"></i>Quick Call: (416) 505-6927
+        </a>
+        <p class="text-light mt-1 mb-0" style="font-size: 0.85rem;">Tap to call instantly</p>
+    </div>
+</div>
 
                         <!-- Brand Tagline -->
                         <div class="brand-tagline text-center text-md-start">
